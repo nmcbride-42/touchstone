@@ -1,0 +1,23 @@
+{
+  "_comment": "Each artifact is re-scored by its verifier. 'expect' is checked by examples/reverify_artifacts.py and tests/test_artifacts.py.",
+  "artifacts": [
+    {"file": "symreg_damped_oscillation.py", "handle": "symreg", "fn": "f",
+     "expect": {"valid": true, "score_min": 0.98, "score_max": 0.99},
+     "claim": "held-out R2 ~0.98 vs best-of(linear, cubic) baseline ~-0.18"},
+    {"file": "apfree_base3_105.py", "handle": "apfree", "fn": "construct",
+     "expect": {"valid": true, "score_eq": 105},
+     "claim": "proven AP-free, size 105 (base-3 construction)"},
+    {"file": "apfree_111.py", "handle": "apfree", "fn": "construct",
+     "expect": {"valid": true, "score_eq": 111},
+     "claim": "proven AP-free, size 111 (> base-3's 105)"},
+    {"file": "binpack_trimodal_heuristic.py", "handle": "binpack_trimodal", "fn": "priority",
+     "expect": {"valid": true, "detail_true": ["beats_best_fit_train", "beats_best_fit_heldout"]},
+     "claim": "fewer excess bins than best-fit on train and held-out trimodal instances"},
+    {"file": "lightcurve_gaussian_4p.py", "handle": "lightcurve", "fn": "f",
+     "expect": {"valid": true, "score_min": 0.96, "score_max": 0.97},
+     "claim": "held-out R2 ~0.964 on the shipped curve, 4 parameters"},
+    {"file": "lightcurve_sech_7p.py", "handle": "lightcurve", "fn": "f",
+     "expect": {"valid": true, "score_min": 0.94, "score_max": 0.95},
+     "claim": "held-out R2 ~0.944 on the shipped curve: no longer beats the 4-parameter model"}
+  ]
+}

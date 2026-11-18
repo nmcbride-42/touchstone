@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "touchstone"
+version = "0.1.0"
+description = "Generate -> verify -> artifact: LLM proposers, deterministic external scorers, sandboxed evaluation of candidate code."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Nick McBride" }]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+]
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.100"]
+openai = ["openai>=1.40"]
+fetch = ["lightkurve>=2.4"]
+dev = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+include = ["touchstone*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
